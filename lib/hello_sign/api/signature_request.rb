@@ -59,7 +59,7 @@ module HelloSign
       def get_signature_requests(opts={})
         path = '/signature_request/list'
         opts[:query] = create_search_string(opts[:query]) if opts[:query]
-        query = create_query_string(opts, [:page, :page_size, :query])
+        query = create_query_string(opts, [:page, :page_size, :account_id, :query])
         path += query
         HelloSign::Resource::ResourceArray.new get(path, opts), 'signature_requests', HelloSign::Resource::SignatureRequest
       end
